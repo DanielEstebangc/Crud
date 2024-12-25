@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Administración</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Página de Administración</h1>
+    <h2>Lista de Participantes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="persona : ${personas}">
+                <td th:text="${persona.id}"></td>
+                <td th:text="${persona.nombre}"></td>
+                <td th:text="${persona.apellido}"></td>
+                <td th:text="${persona.email}"></td>
+                <td th:text="${persona.telefono}"></td>
+                <td th:text="${persona.direccion}"></td>
+                <td>
+                    <a th:href="@{/personas/editar/{id}(id=${persona.id})}">Editar Persona</a>
+                    <a th:href="@{/personas/eliminar/{id}(id=${persona.id})}">Eliminar Persona</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/personas/nuevo}">Nueva Persona</a>
+</body>
+</html>
