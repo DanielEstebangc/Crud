@@ -61,5 +61,7 @@ public class PersonaController {
         personaService.eliminar(id);
         return "redirect:/personas";
     }
-
+    
+    //error en las ids y en como la vista recibia los datos del controlador
+    
 }
